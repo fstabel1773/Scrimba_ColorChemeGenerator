@@ -1,4 +1,46 @@
+* {
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
 html, body {
     margin: 0;
     padding: 0;
+    background: #1C1C1C;
+}
+
+div#app-container {
+    margin: 4em auto;
+    background: #FFFDFE;
+    min-width: 20em;
+    max-width: 40em;
+    height: 40em;
+}
+
+form#settings-form {
+    width: 100%;
+    padding: 1em 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div#colors-container {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    
+}
+
+.color-value-container {
+    width: 100%;
+}
+
+.color-box {
+    height: 90%;
+    align-self: stretch;
+}
+
+.hex-value-container {
+    padding: 0.5em 1em
 }
