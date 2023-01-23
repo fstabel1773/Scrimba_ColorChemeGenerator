@@ -1,4 +1,10 @@
-# co73343ea8c93c5d396d7ac67
+# About this repo
+This repo contains a solo project from Scrimba frontend career path, module 9, working with APIs. It is a color scheme generator which uses the "The Color API" (https://www.thecolorapi.com/docs#schemes) for getting a color scheme according to user settings.
+
+Built on my own from scratch.
+
+
+### co73343ea8c93c5d396d7ac67
 
 Quick start:
 
