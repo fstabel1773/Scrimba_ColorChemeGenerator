@@ -4,41 +4,30 @@ const getColorSchemeBtn = document.getElementById("get-color-scheme-btn");
 const colorsContainer = document.getElementById("colors-container");
 const colorsFooter = document.getElementById("colors-footer");
 
-let colorsHexArray = [];
-let colorsContainerHtml = ``;
-let colorsFooterHtml = ``;
-
-// Getting value of colorSeed and mode selection on clicking
-getColorSchemeBtn.addEventListener("click", (event) => {
+getColorSchemeBtn.addEventListener("click", async (event) => {
   event.preventDefault();
-  console.log(colorSeed.value);
-  console.log(modeSelection.value);
-  col = colorSeed.value.slice(1);
-  fetch(
-    `https://www.thecolorapi.com/scheme?hex=${col}&format=json&mode=${modeSelection.value}&count=6`
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      colorsHexArray = data.colors.map((color) => {
-        return color.hex.value;
-      });
-      console.log(colorsHexArray);
-      colorsHexArray.forEach((hexValue) => {
-        colorsContainerHtml += `
-            <div class="color-box" style="background-color: ${hexValue}"></div>
-        `;
-        colorsFooterHtml += `
-            <p class="hex-value">${hexValue}</p>
-        `;
-      });
-      console.log(colorsFooterHtml);
-      renderColorScheme();
-      console.log();
-    });
-});
 
-function renderColorScheme() {
-  colorsContainer.innerHTML = colorsContainerHtml;
+  const hexValue = colorSeed.value.slice(1);
+  const mode = modeSelection.value;
+  const count = 6;
+
+  const response = await fetch(
+    `https://www.thecolorapi.com/scheme?hex=${hexValue}&format=json&mode=${mode}&count=${count}`
+  );
+  const data = await response.json();
+  const colorsHexArray = data.colors.map((color) => {
+    return color.hex.value;
+  });
+
+  let colorBoxHtml = ``;
+  let colorsFooterHtml = ``;
+  colorsHexArray.forEach((hexValue) => {
+    colorBoxHtml += `
+      <div class="color-box" style="background-color: ${hexValue}"></div>
+      `;
+    colorsFooterHtml += `<p>${hexValue}</p>`;
+  });
+
+  colorsContainer.innerHTML = colorBoxHtml;
   colorsFooter.innerHTML = colorsFooterHtml;
-}
+});

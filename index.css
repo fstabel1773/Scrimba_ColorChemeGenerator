@@ -24,7 +24,7 @@ button#get-color-scheme-btn {
 
 div#app-container {
     margin: 4em auto;
-    padding: 1em;
+    padding: 0;
     min-width: 20em;
     max-width: 40em;
     height: 40em;
@@ -47,6 +47,7 @@ form#settings-form {
     z-index: 1;
     background: #FFFDFE;
     border-radius: 4px 4px 0 0;
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.15);
 }
 
 #color-seed {
@@ -55,7 +56,6 @@ form#settings-form {
     border: 0.5px solid #D1D5DB;
     border-radius: 6px;
 }
-
 
 select#mode-selection {
     height: 2.625em;
@@ -77,6 +77,15 @@ button#get-color-scheme-btn {
     border-radius: 4px;
 }
 
+button#get-color-scheme-btn:hover,
+#color-seed:hover,
+select#mode-selection:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+/* color-box-container */
 
 div#colors-container {
     width: 100%;
@@ -88,9 +97,11 @@ div#colors-container {
 
 .color-box {
     width: 100%;
+    height: 100%;
     z-index: 0;
     border-radius: 4px;
 }
+
 
 div#colors-footer {
     position: absolute;
@@ -109,7 +120,6 @@ div#colors-footer {
     border-radius: 0 0 4px 4px;
 }
 
-
  @media (min-width: 550px) {
     form#settings-form {
         flex-direction: row;
@@ -123,6 +133,6 @@ div#colors-footer {
 
     select#mode-selection {
         height: 2.625em;
-        width: 26em;
-
+        width: 23em;
+    }
  }
