@@ -1,46 +1,128 @@
 * {
     box-sizing: border-box;
-    border: 1px solid black;
 }
 
 html, body {
     margin: 0;
     padding: 0;
     background: #1C1C1C;
+    font-family: inter, sans-serif;
 }
+
+/* =================
+    Typography
+    ==============*/
+p,
+button#get-color-scheme-btn {
+    font-size: 0.75rem;
+}
+
+
+/* =================
+    Layout
+    ==============*/
 
 div#app-container {
     margin: 4em auto;
-    background: #FFFDFE;
+    padding: 1em;
     min-width: 20em;
     max-width: 40em;
     height: 40em;
+    position: relative;
+    background: #FFFDFE;
+    border-radius: 4px;
 }
 
+/* settings-form */
+
 form#settings-form {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 1em 0.5em;
+    padding: 1em;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    z-index: 1;
+    background: #FFFDFE;
+    border-radius: 4px 4px 0 0;
 }
+
+#color-seed {
+    width: 100%;
+    height: 2.625em;
+    border: 0.5px solid #D1D5DB;
+    border-radius: 6px;
+}
+
+
+select#mode-selection {
+    height: 2.625em;
+    width: 100%;
+    padding: 0.5em;
+    line-height: 1.5em;
+    color: #111827;
+    border: 1px solid #D1D5DB;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+}
+
+button#get-color-scheme-btn {
+    padding: 0.7em;
+    color: #374151;
+    background: inherit;
+    border: 1px solid #D1D5DB;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
 
 div#colors-container {
     width: 100%;
-    height: 90%;
-    display: flex;
-    
-}
-
-.color-value-container {
-    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    border-radius: 4px;
 }
 
 .color-box {
-    height: 90%;
-    align-self: stretch;
+    width: 100%;
+    z-index: 0;
+    border-radius: 4px;
 }
 
-.hex-value-container {
-    padding: 0.5em 1em
+div#colors-footer {
+    position: absolute;
+    min-height: 4em;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1em 0.5em;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    color: black;
+    z-index: 1;
+    background: #FFFDFE;
+    color: #2B283A;
+    border-radius: 0 0 4px 4px;
 }
+
+
+ @media (min-width: 550px) {
+    form#settings-form {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #color-seed {
+        width: 3.8em;
+    }
+
+    select#mode-selection {
+        height: 2.625em;
+        width: 26em;
+
+ }

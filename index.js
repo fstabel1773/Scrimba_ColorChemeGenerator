@@ -1,10 +1,12 @@
 const colorSeed = document.getElementById("color-seed");
-const getColorSchemeBtn = document.getElementById("get-color-scheme-btn");
 const modeSelection = document.getElementById("mode-selection");
+const getColorSchemeBtn = document.getElementById("get-color-scheme-btn");
 const colorsContainer = document.getElementById("colors-container");
+const colorsFooter = document.getElementById("colors-footer");
 
 let colorsHexArray = [];
-let colorHtml = ``;
+let colorsContainerHtml = ``;
+let colorsFooterHtml = ``;
 
 // Getting value of colorSeed and mode selection on clicking
 getColorSchemeBtn.addEventListener("click", (event) => {
@@ -23,18 +25,20 @@ getColorSchemeBtn.addEventListener("click", (event) => {
       });
       console.log(colorsHexArray);
       colorsHexArray.forEach((hexValue) => {
-        colorHtml += `
-            <div class="color-value-container">
-                <div class="color-box" style="background-color: ${hexValue}"></div>
-                <div class="hex-value-container">${hexValue}</div>
-            </div>
+        colorsContainerHtml += `
+            <div class="color-box" style="background-color: ${hexValue}"></div>
+        `;
+        colorsFooterHtml += `
+            <p class="hex-value">${hexValue}</p>
         `;
       });
-      console.log(colorHtml);
+      console.log(colorsFooterHtml);
       renderColorScheme();
+      console.log();
     });
 });
 
-function renderColorScheme(array) {
-  colorsContainer.innerHTML = colorHtml;
+function renderColorScheme() {
+  colorsContainer.innerHTML = colorsContainerHtml;
+  colorsFooter.innerHTML = colorsFooterHtml;
 }
