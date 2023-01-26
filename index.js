@@ -1,4 +1,5 @@
 const colorSeed = document.getElementById("color-seed");
+const colorCountInput = document.getElementById("color-count");
 const modeSelection = document.getElementById("mode-selection");
 const getColorSchemeBtn = document.getElementById("get-color-scheme-btn");
 const colorsContainer = document.getElementById("colors-container");
@@ -9,7 +10,7 @@ getColorSchemeBtn.addEventListener("click", async (event) => {
 
   const hexValue = colorSeed.value.slice(1);
   const mode = modeSelection.value;
-  const count = 6;
+  const count = colorCountInput.value;
 
   const response = await fetch(
     `https://www.thecolorapi.com/scheme?hex=${hexValue}&format=json&mode=${mode}&count=${count}`
@@ -27,6 +28,9 @@ getColorSchemeBtn.addEventListener("click", async (event) => {
       `;
     colorsFooterHtml += `<p>${hexValue}</p>`;
   });
+
+  colorsContainer.style.gridTemplateColumns = `repeat(${count}, 1fr`;
+  colorsFooter.style.gridTemplateColumns = `repeat(${count}, 1fr`;
 
   colorsContainer.innerHTML = colorBoxHtml;
   colorsFooter.innerHTML = colorsFooterHtml;
