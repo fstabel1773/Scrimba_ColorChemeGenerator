@@ -26,8 +26,8 @@ div#app-container {
     margin: 4em auto;
     padding: 0;
     min-width: 20em;
-    max-width: 40em;
-    height: 40em;
+    max-width: 45em;
+    height: 80vh;
     position: relative;
     background: #FFFDFE;
     border-radius: 4px;
@@ -50,37 +50,54 @@ form#settings-form {
     box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.15);
 }
 
-#color-seed {
+input#color-seed, 
+input#color-count,
+select#mode-selection,
+button#get-color-scheme-btn {
     width: 100%;
-    height: 2.625em;
-    border: 0.5px solid #D1D5DB;
     border-radius: 6px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    border: 1px solid #D1D5DB;
 }
 
+input#color-seed, 
+input#color-count,
 select#mode-selection {
     height: 2.625em;
-    width: 100%;
+}
+
+input#color-count,
+select#mode-selection {
     padding: 0.5em;
     line-height: 1.5em;
     color: #111827;
-    border: 1px solid #D1D5DB;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 6px;
+    color: #111827;
 }
+
+
+input#color-count {
+    
+    text-align: center;
+}
+
+input#color-count::placeholder {
+    font-size: 0.5rem;
+    text-align: left;
+}
+
+
 
 button#get-color-scheme-btn {
-    padding: 0.7em;
+    padding: 1em 0.5em;
     color: #374151;
-    background: inherit;
-    border: 1px solid #D1D5DB;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
+    background: whitesmoke;
 }
 
-button#get-color-scheme-btn:hover,
-#color-seed:hover,
-select#mode-selection:hover {
-    transform: scale(1.1);
+input#color-seed:hover,
+input#color-count:hover,
+select#mode-selection:hover,
+button#get-color-scheme-btn:hover {
+    transform: scale(1.05);
     cursor: pointer;
 }
 
@@ -91,15 +108,12 @@ div#colors-container {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     border-radius: 4px;
 }
 
 .color-box {
-    width: 100%;
-    height: 100%;
     z-index: 0;
-    border-radius: 4px;
 }
 
 
@@ -111,7 +125,7 @@ div#colors-footer {
     width: 100%;
     padding: 1em 0.5em;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     justify-items: center;
     color: black;
     z-index: 1;
@@ -127,12 +141,21 @@ div#colors-footer {
         align-items: center;
     }
 
-    #color-seed {
-        width: 3.8em;
+    input#color-seed {
+        width: 10%;
+    }
+    
+    input#color-count {
+        width: 20%;
     }
 
     select#mode-selection {
-        height: 2.625em;
-        width: 23em;
+        width: 40%;
     }
+
+    button#get-color-scheme-btn {
+
+        width: 20%;
+    }
+
  }
